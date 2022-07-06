@@ -29,9 +29,10 @@ export default {
   loading: { color: '#faa1a1' },
   css: [
     'normalize.css',
-    '@/assets/styles/main.scss'
+    '~/assets/styles/main.scss'
   ],
   plugins: [
+    { src: '~/plugins/vue-lazy-load.js' }
   ],
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
@@ -49,7 +50,7 @@ export default {
     timeout: 5000
   },
   styleResources: {
-    scss: ['./assets/styles/global-variables.scss'],
+    scss: ['~/assets/styles/global-variables.scss'],
   },
   /*
   ** Axios module configuration
