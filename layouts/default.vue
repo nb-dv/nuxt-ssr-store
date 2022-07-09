@@ -1,14 +1,21 @@
 <template>
-  <nuxt />
+  <div>
+    <TheHeader />
+    <nuxt />
+  </div>
 </template>
 
 <script>
+import TheHeader from '../components/core/TheHeader'
+
 export default {
-  head () {
+  components: {
+    TheHeader,
+  },
+  head() {
     const canonical = `https://mysite.com${this.$route.path
       .toLowerCase()
       .replace(/\/$/, '')}`
-    // console.log('canonical  ', canonical) //  https://mysite.com
     return {
       meta: [
         ...this.meta,
@@ -25,14 +32,14 @@ export default {
     }
   },
   computed: {
-    meta () {
+    meta() {
       return [
         { charset: 'utf-8' },
         {
           name: 'viewport',
           content: 'width=device-width, initial-scale=1, maximum-scale=1 shrink-to-fit=no'
         },
-        { hid: 'description', name: 'description', content: 'Главная' }
+        { hid: 'description', name: 'description', content: 'Store' }
       ]
     },
   },
