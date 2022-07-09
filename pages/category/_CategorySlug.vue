@@ -1,14 +1,14 @@
 <template>
   <div class="container">
     <h1>{{ category.name }}</h1>
-    <p>{{ category.descr }}</p>
-    <div :class="$style.productList">
-      <div
+    <p class="category__descr">{{ category.descr }}</p>
+    <div class="category__list">
+      <ProductCard
         v-for="product in category.products"
         :key="product.id"
-      >
-        <ProductCard :product="product" />
-      </div>
+        class="category__item"
+        :product="product"
+      />
     </div>
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
   components: {
     ProductCard,
   },
-  async asyncData ({ store, route, error }) {
+  async asyncData({ store, route, error }) {
     try {
       await store.dispatch('getCurrentCategory', { route })
     } catch (err) {
@@ -32,7 +32,7 @@ export default {
       })
     }
   },
-  head () {
+  head() {
     return {
       title: this.category.title,
       meta: [
@@ -52,10 +52,27 @@ export default {
 }
 </script>
 
-<style lang="scss" module>
-.productList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+<style lang="scss" scoped>
+.category {
+  &__descr {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 15px 0;
+  }
+  &__list {
+    display: grid;
+    column-gap: 10px;
+    row-gap: 60px;
+    grid-template-columns: repeat(1, 1fr);
+    @media (min-width: 500px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 800px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (min-width: 1100px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
 }
 </style>
