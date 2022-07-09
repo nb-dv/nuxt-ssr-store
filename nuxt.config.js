@@ -136,16 +136,16 @@ export default {
       }),
       order: 'cssnanoLast'
     },
-    extend (config, ctx) {
+    extend(config, ctx) {
       const ORIGINAL_TEST = '/\\.(png|jpe?g|gif|svg|webp)$/i'
-      const vueSvgLoader = [
-        {
-          loader: 'vue-svg-loader',
-          options: {
-            svgo: false
-          }
-        }
-      ]
+      // const vueSvgLoader = [
+      //   {
+      //     loader: 'vue-svg-loader',
+      //     options: {
+      //       svgo: false
+      //     }
+      //   }
+      // ]
       const imageMinPlugin = new ImageminPlugin({
         pngquant: {
           quality: '5-30',
@@ -171,7 +171,7 @@ export default {
 
       config.module.rules.forEach((rule) => {
         if (rule.test.toString() === ORIGINAL_TEST) {
-          rule.test = /\.(png|jpe?g|gif|webp)$/i
+          rule.test = /\.(png|jpe?g|gif|webp|svg)$/i
           rule.use = [
             {
               loader: 'url-loader',
@@ -184,27 +184,27 @@ export default {
         }
       })
       // custom SVG rule
-      const svgRule = {
-        test: /\.svg$/,
-        oneOf: [
-          {
-            resourceQuery: /inline/,
-            use: vueSvgLoader
-          },
-          {
-            resourceQuery: /data/,
-            loader: 'url-loader',
-          },
-          {
-            resourceQuery: /raw/,
-            loader: 'raw-loader',
-          },
-          {
-            loader: 'file-loader', // By default, always use file-loader
-          }
-        ]
-      }
-      config.module.rules.push(svgRule) // Actually add the rule
+      // const svgRule = {
+      //   test: /\.svg$/,
+      //   oneOf: [
+      //     {
+      //       resourceQuery: /inline/,
+      //       use: vueSvgLoader
+      //     },
+      //     {
+      //       resourceQuery: /data/,
+      //       loader: 'url-loader',
+      //     },
+      //     {
+      //       resourceQuery: /raw/,
+      //       loader: 'raw-loader',
+      //     },
+      //     {
+      //       loader: 'file-loader', // By default, always use file-loader
+      //     }
+      //   ]
+      // }
+      // config.module.rules.push(svgRule) // Actually add the rule
     }
   }
 }
