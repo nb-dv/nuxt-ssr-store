@@ -16,7 +16,7 @@ const categories = [
     id: 'tents',
     name: 'Палатки',
     slug: 'tents',
-    image: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4',
+    image: 'https://images.unsplash.com/photo-1628087235616-4e146afcd061',
     title: 'Палатки',
     descr: 'Описание',
     metaDescr: 'Мета описание',

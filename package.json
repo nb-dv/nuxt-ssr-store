@@ -37,6 +37,7 @@
     "@nuxtjs/eslint-config": "^8.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/stylelint-module": "^4.1.0",
+    "@nuxtjs/svg": "^0.4.0",
     "cssnano": "^4.1.10",
     "cssnano-preset-advanced": "^5.3.8",
     "eslint": "^8.4.1",
@@ -51,6 +52,7 @@
     "sass-loader": "^10.2.1",
     "stylelint": "^14.1.0",
     "stylelint-config-recommended-vue": "^1.1.0",
-    "stylelint-config-standard": "^24.0.0"
+    "stylelint-config-standard": "^24.0.0",
+    "vue-svg-loader": "^0.16.0"
   }
 }

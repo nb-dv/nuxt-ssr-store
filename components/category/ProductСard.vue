@@ -1,10 +1,14 @@
 <template>
   <div :class="$style.wrapper">
-    <nuxt-link :to="`/product/${product.slug}`">
-      <p>{{ product.name }}</p>
-      <img :class="$style.image" v-lazy="product.image" />
+    <nuxt-link :class="$style.link" :to="`/product/${product.slug}`">
+      <img v-lazy="product.image" :class="$style.image" />
+      <p :class="$style.name">
+        {{ product.name }}
+      </p>
+      <p :class="$style.price">
+        Цена {{ product.price }}
+      </p>
     </nuxt-link>
-    <p>Цена {{ product.price }}</p>
   </div>
 </template>
 
@@ -23,9 +27,22 @@ export default {
 .wrapper {
   display: flex;
   flex-direction: column;
+  margin: 5px;
+  border-radius: 10px;
 }
 .image {
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.name {
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+.price {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 10px 0;
 }
 </style>
