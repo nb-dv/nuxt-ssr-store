@@ -2,17 +2,16 @@
   box-sizing: border-box;
 }
 html {
-  /*font-size: $baseFontsSize;*/
-  overflow-x: hidden;
 }
 body {
   font-family: 'BasisGrotesquePro', sans-serif;
   line-height: 1.2;
   width: 100%;
-  -moz-osx-font-smoothing: grayscale;
+  padding-top: 100px;
+  color: $main-color;
+  //-moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  /*background: $main-bg;*/
-  /*color: $white;*/
+  background: $main-bg;
 }
 img {
   max-width: 100%;
@@ -78,6 +77,7 @@ input[type='reset'] {
 
 .container {
   max-width: 1280px;
+  padding: 0 15px;
   margin: 0 auto;
 }
 
